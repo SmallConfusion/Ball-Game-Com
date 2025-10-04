@@ -2,6 +2,8 @@
 
 This game was commissioned as a test for https://gdaimcp.com/ and https://ziva.sh/.
 
+Created in 84 minutes
+
 <image src="./media/finished.png" width="500">
 
 Finished gameplay
