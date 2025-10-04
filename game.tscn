@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbnjg7i2qijnr"]
+
+[ext_resource type="Script" uid="uid://cd4qlskgsxl6x" path="res://game_manager.gd" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://bpgimc3jr75o4" path="res://circle/circle.svg" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://dhathfryo3c8l" path="res://ship.gd" id="2_feb5d"]
+
+[sub_resource type="Gradient" id="Gradient_80nbo"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.33486238, 0.71100914, 1)
+colors = PackedColorArray(0.92789644, 0.7146406, 0.7427279, 1, 0.9629988, 0.65199554, 0.9604401, 1, 0.72634983, 0.7913829, 0.95527655, 1, 0.90536565, 0.77833384, 0.61122537, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feb5d"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_80nbo")
+circle_colors = SubResource("Gradient_80nbo")
+
+[node name="CircleTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -433.0
+offset_right = -15.0
+offset_bottom = 713.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 2
+
+[node name="Ship" type="Area2D" parent="."]
+script = ExtResource("2_feb5d")
+
+[node name="Circle" type="Sprite2D" parent="Ship"]
+scale = Vector2(0.04296875, 0.04296875)
+texture = ExtResource("2_e2o6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
+shape = SubResource("CircleShape2D_feb5d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(540, 540)
