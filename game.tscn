@@ -25,6 +25,7 @@ autostart = true
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -37,7 +38,53 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 2
 
+[node name="EndMenu" type="PanelContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.30555555
+anchor_top = 0.2777778
+anchor_right = 0.6944444
+anchor_bottom = 0.7222222
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/EndMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/EndMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="CanvasLayer/EndMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/EndMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play Again"
+
+[node name="Control2" type="Control" parent="CanvasLayer/EndMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Ship" type="Area2D" parent="."]
+collision_layer = 0
 script = ExtResource("2_feb5d")
 
 [node name="Circle" type="Sprite2D" parent="Ship"]
@@ -49,3 +96,4 @@ shape = SubResource("CircleShape2D_feb5d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(540, 540)
+process_callback = 0

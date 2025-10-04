@@ -8,6 +8,7 @@ resource_local_to_scene = true
 radius = 500.0
 
 [node name="Circle" type="Area2D"]
+collision_mask = 0
 script = ExtResource("1_whlr7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
