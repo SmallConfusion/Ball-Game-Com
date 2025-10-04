@@ -109,6 +109,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Ship" type="Area2D" parent="."]
+z_index = 1
 collision_layer = 0
 script = ExtResource("2_feb5d")
 
