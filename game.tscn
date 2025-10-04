@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbnjg7i2qijnr"]
+[gd_scene load_steps=9 format=3 uid="uid://cbnjg7i2qijnr"]
 
 [ext_resource type="Script" uid="uid://cd4qlskgsxl6x" path="res://game_manager.gd" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://bpgimc3jr75o4" path="res://circle/circle.svg" id="2_e2o6t"]
@@ -9,6 +9,21 @@ interpolation_mode = 2
 interpolation_color_space = 2
 offsets = PackedFloat32Array(0, 0.33486238, 0.71100914, 1)
 colors = PackedColorArray(0.92789644, 0.7146406, 0.7427279, 1, 0.9629988, 0.65199554, 0.9604401, 1, 0.72634983, 0.7913829, 0.95527655, 1, 0.90536565, 0.77833384, 0.61122537, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_feb5d"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_feb5d"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(0.051970966, 0.051970966, 0.051970936, 1, 0.00566115, 0.005661152, 0.005661148, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fc0e3"]
+gradient = SubResource("Gradient_feb5d")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feb5d"]
 
@@ -26,6 +41,16 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -4096
+material = SubResource("CanvasItemMaterial_feb5d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_fc0e3")
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
